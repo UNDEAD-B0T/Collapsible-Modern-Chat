@@ -4,7 +4,7 @@ import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 
-@ConfigGroup("CollapsibleModernChatConfig")
+@ConfigGroup("CollapsibleChat")
 public interface CollapsibleModernChatConfig extends Config
 {
 
