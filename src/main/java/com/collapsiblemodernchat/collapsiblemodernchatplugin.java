@@ -1,4 +1,4 @@
-package com.CollapsibleModernChat;
+package com.collapsiblemodernchat;
 
 import com.google.inject.Provides;
 import javax.inject.Inject;
@@ -21,7 +21,7 @@ import static java.lang.Integer.valueOf;
 		description = "Resizeable/Modern Layout only: collapses chat to an icon that shows DMs and all chat",
 		tags = {"chat", "resizeable", "modern", "collapse", "collapsible", "icon", "notification"}
 )
-public class CollapsibleModernChatPlugin extends Plugin
+public class collapsiblemodernchatplugin extends Plugin
 {
 
 	@Inject
@@ -34,7 +34,7 @@ public class CollapsibleModernChatPlugin extends Plugin
 	}
 
 	@Inject
-	private CollapsibleModernChatConfig config;
+	private collapsiblemodernchatconfig config;
 
 	@Subscribe
 	public void onScriptPostFired(ScriptPostFired scriptPostFired) {
@@ -97,7 +97,7 @@ public class CollapsibleModernChatPlugin extends Plugin
 
 
 
-		// top positioning of chat buttons
+		// chat npc dialog
 		final Widget ChatBoxDialog = client.getWidget(15138822);
 
 		if (ChatBoxDialog != null && ChatBoxDialog.getText()!=null) {
@@ -113,7 +113,7 @@ public class CollapsibleModernChatPlugin extends Plugin
 		}
 
 
-		// top positioning of chat buttons
+		// chat dialog
 		final Widget ChatBoxDialogPlayer = client.getWidget(14221318);
 
 		if (ChatBoxDialogPlayer != null && ChatBoxDialogPlayer.getText()!=null) {
@@ -1320,8 +1320,8 @@ public class CollapsibleModernChatPlugin extends Plugin
 	}
 
 	@Provides
-	CollapsibleModernChatConfig provideConfig(ConfigManager configManager)
+	collapsiblemodernchatconfig provideConfig(ConfigManager configManager)
 	{
-		return configManager.getConfig(CollapsibleModernChatConfig.class);
+		return configManager.getConfig(collapsiblemodernchatconfig.class);
 	}
 }

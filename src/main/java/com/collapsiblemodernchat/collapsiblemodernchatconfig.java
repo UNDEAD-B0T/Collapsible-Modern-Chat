@@ -1,11 +1,11 @@
-package com.CollapsibleModernChat;
+package com.collapsiblemodernchat;
 
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 
-@ConfigGroup("CollapsibleChat")
-public interface CollapsibleModernChatConfig extends Config
+@ConfigGroup("collapsiblechat")
+public interface collapsiblemodernchatconfig extends Config
 {
 
 	@ConfigItem(
