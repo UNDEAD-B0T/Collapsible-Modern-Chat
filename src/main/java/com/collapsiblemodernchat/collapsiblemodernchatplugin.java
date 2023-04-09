@@ -29,6 +29,7 @@ public class collapsiblemodernchatplugin extends Plugin
 
 	@Subscribe
 	public void onClientTick(ClientTick event) {
+
 		updatePlugins();
 
 	}
@@ -46,6 +47,7 @@ public class collapsiblemodernchatplugin extends Plugin
 
 	private void updatePlugins() {
 
+		chatbuttonhidecheck = 0;
 		//Id	10682368 private chat messages
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -127,6 +129,25 @@ public class collapsiblemodernchatplugin extends Plugin
 		{
 			//chatbuttonhidecheck = 0;
 		}
+
+
+
+
+
+				final Widget ChatBoxBackgroundCheck = client.getWidget(10616867);
+
+				if (ChatBoxBackgroundCheck != null && !ChatBoxBackgroundCheck.isSelfHidden()) {
+					for (Widget widget : ChatBoxBackgroundCheck.getDynamicChildren()) {
+
+						if (widget.getSpriteId()!=-1){
+							chatbuttonhidecheck = 1;
+						}
+
+					}
+				}
+
+
+
 
 
 
@@ -988,6 +1009,7 @@ public class collapsiblemodernchatplugin extends Plugin
 	protected void shutDown() throws Exception
 	{
 
+
 		final Widget ChatBarWidgetFin = client.getWidget(10616833);
 
 		if (ChatBarWidgetFin != null) {
@@ -1002,7 +1024,7 @@ public class collapsiblemodernchatplugin extends Plugin
 		if (resizableNormalWidget != null && !resizableNormalWidget.isSelfHidden()) {
 			for (Widget widget : resizableNormalWidget.getStaticChildren()) {
 
-				widget.setHidden(true);
+				widget.setHidden(false);
 
 			}
 		}
