@@ -18,7 +18,7 @@ import static java.lang.Integer.valueOf;
 @Slf4j
 @PluginDescriptor(
 		name = "Collapsible Modern Chat",
-		description = "Resizeable/Modern Layout only: collapses chat to an icon that shows DMs and all chat",
+		description = "Resizeable/Modern Layout only: Enable Transparent Chat",
 		tags = {"chat", "resizeable", "modern", "collapse", "collapsible", "icon", "notification"}
 )
 public class collapsiblemodernchatplugin extends Plugin
