@@ -793,18 +793,6 @@ public interface collapsiblemodernchatconfig extends Config
 		return false;
 	}
 
-	@ConfigItem(
-			keyName = "Toggleable Chat Box Interface",
-			name = "! Toggleable Chat Box Interface !",
-			description = "chat box only opens when clicking on chat buttons, great for spacebar skilling",
-			position = 0,
-			section = extraSettings
-	)
-
-	default boolean ToggleableChatboxSetting()
-	{
-		return false;
-	}
 
 
 	@ConfigItem(
