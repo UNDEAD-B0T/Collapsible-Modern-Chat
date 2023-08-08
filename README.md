@@ -3,5 +3,5 @@ Resizeable/Modern Layout only: Also turn on transparent chat -> collapses chat t
 
 Currently working on some more updates to this plugin and other plugins coming soon as theres some more ui that could use user editing
 
-if you want to support me my paypal is paypal.me/UndeadBot... anything will always be super appeciated and can help me make more updates
+if you want to support these projects, my paypal is paypal.me/UndeadBot... anything will always be super appeciated and can help me make more updates
 thanks and hope yall get the drops :)
