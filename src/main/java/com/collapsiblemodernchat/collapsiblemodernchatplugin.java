@@ -997,7 +997,7 @@ public class collapsiblemodernchatplugin extends Plugin
 			}
 			else
 			{
-				ChatBarWidgetFin.setWidth(519);
+				ChatBarWidgetFin.setWidth(40);
 			}
 		}
 
