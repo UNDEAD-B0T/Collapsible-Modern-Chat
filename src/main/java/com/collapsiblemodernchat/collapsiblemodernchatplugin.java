@@ -362,20 +362,14 @@ public class collapsiblemodernchatplugin extends Plugin
 				if (chatbuttonhidecheck == 0) {
 					ChatBarAllParent.setRelativeY(6);
 					if (config.FlipCollIcon()==true) {
-						if (config.SetCollToRight()==true) {
-							ChatBarAllParent.setRelativeX(487);
-						}
-						else {
+
 							ChatBarAllParent.setRelativeX(14);
-						}
+
 					}
 					else {
-						if (config.SetCollToRight()==true) {
-							ChatBarAllParent.setRelativeX(481);
-						}
-						else {
+
 							ChatBarAllParent.setRelativeX(8);
-						}
+
 					}
 					ChatBarAllParent.setWidth(23);
 				}
@@ -406,20 +400,15 @@ public class collapsiblemodernchatplugin extends Plugin
 				if (chatbuttonhidecheck == 0) {
 					ChatBarAllParent.setRelativeY(2);
 					if (config.FlipCollIcon()==true) {
-						if (config.SetCollToRight()==true) {
-							ChatBarAllParent.setRelativeX(487);
-						}
-						else {
+
+
 							ChatBarAllParent.setRelativeX(14);
-						}
+
 					}
 					else {
-						if (config.SetCollToRight()==true) {
-							ChatBarAllParent.setRelativeX(481);
-						}
-						else {
+
 							ChatBarAllParent.setRelativeX(8);
-						}
+
 					}
 					ChatBarAllParent.setWidth(23);
 				}
@@ -430,11 +419,14 @@ public class collapsiblemodernchatplugin extends Plugin
 		final Widget ChatBarAllSprite = client.getWidget(10616837);
 		if (ChatBarAllParent != null) {
 			if (chatbuttonhidecheck == 0) {
+
+					//ChatBarAllSprite.setRelativeX(0);
 				if (config.FlipCollIcon() == true) {
 					ChatBarAllSprite.setRelativeX(-33);
 				} else {
 					ChatBarAllSprite.setRelativeX(0);
 				}
+
 			}
 			else {
 				if (config.FlipCollIcon() == true) {
@@ -543,20 +535,14 @@ public class collapsiblemodernchatplugin extends Plugin
 					ChatBarPriParent.setRelativeY(6);
 
 
-					if (config.SetCollToRight()==true) {
-						if (config.FlipCollIcon() == true) {
-							ChatBarPriParent.setRelativeX(504-23); //
-						} else {
-							ChatBarPriParent.setRelativeX(504); //
-						}
-					} else {
+
 						if (config.FlipCollIcon() == true) {
 							ChatBarPriParent.setRelativeX(9); //
 						} else {
 							ChatBarPriParent.setRelativeX(30); //
 						}
 
-					}
+
 					ChatBarPriParent.setWidth(6);
 					ChatBarPriParent.setHeight(23);
 				}
@@ -612,20 +598,14 @@ public class collapsiblemodernchatplugin extends Plugin
 				}
 				if (chatbuttonhidecheck == 0) {
 					ChatBarPriParent.setRelativeY(2);
-					if (config.SetCollToRight()==true) {
-						if (config.FlipCollIcon() == true) {
-							ChatBarPriParent.setRelativeX(504-23); //
-						} else {
-							ChatBarPriParent.setRelativeX(504); //
-						}
-					} else {
+
 						if (config.FlipCollIcon() == true) {
 							ChatBarPriParent.setRelativeX(9); //
 						} else {
 							ChatBarPriParent.setRelativeX(30); //
 						}
 
-					}
+
 
 					ChatBarPriParent.setWidth(6);
 					ChatBarPriParent.setHeight(23);
@@ -993,10 +973,17 @@ public class collapsiblemodernchatplugin extends Plugin
 		if (ChatBarWidgetFin != null) {
 			if (chatbuttonhidecheck == 1) {
 				ChatBarWidgetFin.setWidth(519);
-
+				ChatBarWidgetFin.setRelativeX(0);
 			}
 			else
 			{
+				if (config.SetCollToRight()==true) {
+					ChatBarWidgetFin.setRelativeX(473);
+				}
+				else
+				{
+					ChatBarWidgetFin.setRelativeX(0);
+				}
 				ChatBarWidgetFin.setWidth(40);
 			}
 		}
