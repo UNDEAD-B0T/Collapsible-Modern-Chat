@@ -7,6 +7,7 @@ public interface collapsiblemodernchatconfig extends Config
 {
 
 	
+	
 	@ConfigItem(
 			keyName = "Set Chat Bar To Top Of Chat",
 			name = "Set Chat Bar To Top Of Chat",
