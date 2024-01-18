@@ -6,14 +6,15 @@ import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.events.ClientTick;
 import net.runelite.api.events.ScriptPostFired;
+import net.runelite.api.widgets.ComponentID;
 import net.runelite.api.widgets.Widget;
-import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 
 import static java.lang.Integer.valueOf;
+import static net.runelite.api.widgets.ComponentID.RESIZABLE_VIEWPORT_BOTTOM_LINE_MINIMAP;
 
 @Slf4j
 @PluginDescriptor(
@@ -157,7 +158,7 @@ public class collapsiblemodernchatplugin extends Plugin
 
 		if (config.HideMiniMapOnChat()==true){
 			if (chatbuttonhidecheck == 1) {
-				final Widget resizableNormalWidget = client.getWidget(WidgetInfo.RESIZABLE_MINIMAP_WIDGET);
+				final Widget resizableNormalWidget = client.getWidget(ComponentID.RESIZABLE_VIEWPORT_BOTTOM_LINE_MINIMAP);
 
 				if (resizableNormalWidget != null && !resizableNormalWidget.isSelfHidden()) {
 					for (Widget widget : resizableNormalWidget.getStaticChildren()) {
@@ -171,7 +172,7 @@ public class collapsiblemodernchatplugin extends Plugin
 			}
 
 			if (chatbuttonhidecheck == 0) {
-				final Widget resizableNormalWidget = client.getWidget(WidgetInfo.RESIZABLE_MINIMAP_WIDGET);
+				final Widget resizableNormalWidget = client.getWidget(ComponentID.RESIZABLE_VIEWPORT_BOTTOM_LINE_MINIMAP);
 
 				if (resizableNormalWidget != null && !resizableNormalWidget.isSelfHidden()) {
 					for (Widget widget : resizableNormalWidget.getStaticChildren()) {
@@ -923,7 +924,7 @@ public class collapsiblemodernchatplugin extends Plugin
 		}
 
 		if (config.HideMiniMapOnChat()==false) {
-			final Widget resizableNormalWidget = client.getWidget(WidgetInfo.RESIZABLE_MINIMAP_WIDGET);
+			final Widget resizableNormalWidget = client.getWidget(ComponentID.RESIZABLE_VIEWPORT_BOTTOM_LINE_MINIMAP);
 
 			if (resizableNormalWidget != null && !resizableNormalWidget.isSelfHidden()) {
 				for (Widget widget : resizableNormalWidget.getStaticChildren()) {
@@ -1006,7 +1007,7 @@ public class collapsiblemodernchatplugin extends Plugin
 
 		}
 
-		final Widget resizableNormalWidget = client.getWidget(WidgetInfo.RESIZABLE_MINIMAP_WIDGET);
+		final Widget resizableNormalWidget = client.getWidget(ComponentID.RESIZABLE_VIEWPORT_BOTTOM_LINE_MINIMAP);
 
 		if (resizableNormalWidget != null && !resizableNormalWidget.isSelfHidden()) {
 			for (Widget widget : resizableNormalWidget.getStaticChildren()) {
