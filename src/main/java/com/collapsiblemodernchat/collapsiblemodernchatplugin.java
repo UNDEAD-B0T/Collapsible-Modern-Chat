@@ -13,6 +13,7 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 
+import static com.collapsiblemodernchat.collapsiblemodernchatconfig.MinimapHidingTask.DEFAULT;
 import static java.lang.Integer.valueOf;
 import static net.runelite.api.widgets.ComponentID.RESIZABLE_VIEWPORT_BOTTOM_LINE_MINIMAP;
 
@@ -162,8 +163,29 @@ public class collapsiblemodernchatplugin extends Plugin
 
 				if (resizableNormalWidget != null && !resizableNormalWidget.isSelfHidden()) {
 					for (Widget widget : resizableNormalWidget.getStaticChildren()) {
+						if (config.MinimapHidingTask()==DEFAULT) {
+							widget.setHidden(true);
+						}
+						else
+						{
+							widget.setHidden(false);
+						}
 
-						widget.setHidden(true);
+					}
+				}
+
+				final Widget resizableNormalWidget_orbs = client.getWidget(ComponentID.RESIZABLE_VIEWPORT_BOTTOM_LINE_MINIMAP_ORB_HOLDER);
+
+				if (resizableNormalWidget_orbs != null && !resizableNormalWidget_orbs.isSelfHidden()) {
+					for (Widget widget : resizableNormalWidget_orbs.getStaticChildren()) {
+
+						if (config.MinimapHidingTask()==DEFAULT) {
+							widget.setHidden(true);
+						}
+						else
+						{
+							widget.setHidden(false);
+						}
 
 					}
 				}
@@ -177,7 +199,31 @@ public class collapsiblemodernchatplugin extends Plugin
 				if (resizableNormalWidget != null && !resizableNormalWidget.isSelfHidden()) {
 					for (Widget widget : resizableNormalWidget.getStaticChildren()) {
 
-						widget.setHidden(false);
+						if (config.MinimapHidingTask()==DEFAULT) {
+							widget.setHidden(false);
+						}
+						else
+						{
+							widget.setHidden(true);
+						}
+
+					}
+				}
+
+
+
+				final Widget resizableNormalWidget_orbs = client.getWidget(ComponentID.RESIZABLE_VIEWPORT_BOTTOM_LINE_MINIMAP_ORB_HOLDER);
+
+				if (resizableNormalWidget_orbs != null && !resizableNormalWidget_orbs.isSelfHidden()) {
+					for (Widget widget : resizableNormalWidget_orbs.getStaticChildren()) {
+
+						if (config.MinimapHidingTask()==DEFAULT) {
+							widget.setHidden(false);
+						}
+						else
+						{
+							widget.setHidden(true);
+						}
 
 					}
 				}
@@ -936,14 +982,14 @@ public class collapsiblemodernchatplugin extends Plugin
 		}
 		if (config.HideMiniMapX()==true) {
 			// MINIMAP X
-			final Widget MinimapX = client.getWidget(10747937);
+			final Widget MinimapX = client.getWidget(10747938);
 
 			if (MinimapX != null) {
 
 				MinimapX.setHidden(true);
 
 			}    // MINIMAP X
-			final Widget MinimapX2 = client.getWidget(10747938);
+			final Widget MinimapX2 = client.getWidget(10747939);
 
 			if (MinimapX2 != null) {
 
@@ -953,14 +999,14 @@ public class collapsiblemodernchatplugin extends Plugin
 		}
 		else {
 			// MINIMAP X
-			final Widget MinimapX = client.getWidget(10747937);
+			final Widget MinimapX = client.getWidget(10747938);
 
 			if (MinimapX != null)  {
 
 				MinimapX.setHidden(false);
 
 			}	// MINIMAP X
-			final Widget MinimapX2 = client.getWidget(10747938);
+			final Widget MinimapX2 = client.getWidget(10747939);
 
 			if (MinimapX2 != null)  {
 
