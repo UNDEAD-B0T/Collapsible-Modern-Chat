@@ -45,6 +45,27 @@ public class collapsiblemodernchatplugin extends Plugin
 
 	}
 
+	// From Minimap plugin
+	// https://github.com/runelite/runelite/blob/d3cd4f1b8a8a25edca23e948444b3048c0db21d3/runelite-client/src/main/java/net/runelite/client/plugins/minimap/MinimapPlugin.java#L138
+	private void updateMinimapWidgetVisibility(boolean enable) {
+		final Widget resizableStonesWidget = client.getWidget(ComponentID.RESIZABLE_VIEWPORT_MINIMAP);
+
+		if (resizableStonesWidget != null) {
+			resizableStonesWidget.setHidden(enable);
+		}
+
+		final Widget resizableNormalWidget = client.getWidget(ComponentID.RESIZABLE_VIEWPORT_BOTTOM_LINE_MINIMAP);
+
+		if (resizableNormalWidget != null && !resizableNormalWidget.isSelfHidden()) {
+			for (Widget widget : resizableNormalWidget.getStaticChildren()) {
+				if (widget.getId() != ComponentID.RESIZABLE_VIEWPORT_BOTTOM_LINE_LOGOUT_BUTTON_OVERLAY &&
+						widget.getId() != ComponentID.RESIZABLE_VIEWPORT_BOTTOM_LINE_MINIMAP_LOGOUT_BUTTON) {
+					widget.setHidden(enable);
+				}
+			}
+		}
+	}
+
 	int chatbuttonhidecheck = 0;
 
 	private void updatePlugins() {
@@ -157,79 +178,8 @@ public class collapsiblemodernchatplugin extends Plugin
 // set minimap to be hidden
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		if (config.HideMiniMapOnChat()==true){
-			if (chatbuttonhidecheck == 1) {
-				final Widget resizableNormalWidget = client.getWidget(ComponentID.RESIZABLE_VIEWPORT_BOTTOM_LINE_MINIMAP);
-
-				if (resizableNormalWidget != null && !resizableNormalWidget.isSelfHidden()) {
-					for (Widget widget : resizableNormalWidget.getStaticChildren()) {
-						if (config.MinimapHidingTask()==DEFAULT) {
-							widget.setHidden(true);
-						}
-						else
-						{
-							widget.setHidden(false);
-						}
-
-					}
-				}
-
-				final Widget resizableNormalWidget_orbs = client.getWidget(ComponentID.RESIZABLE_VIEWPORT_BOTTOM_LINE_MINIMAP_ORB_HOLDER);
-
-				if (resizableNormalWidget_orbs != null && !resizableNormalWidget_orbs.isSelfHidden()) {
-					for (Widget widget : resizableNormalWidget_orbs.getStaticChildren()) {
-
-						if (config.MinimapHidingTask()==DEFAULT) {
-							widget.setHidden(true);
-						}
-						else
-						{
-							widget.setHidden(false);
-						}
-
-					}
-				}
-
-
-			}
-
-			if (chatbuttonhidecheck == 0) {
-				final Widget resizableNormalWidget = client.getWidget(ComponentID.RESIZABLE_VIEWPORT_BOTTOM_LINE_MINIMAP);
-
-				if (resizableNormalWidget != null && !resizableNormalWidget.isSelfHidden()) {
-					for (Widget widget : resizableNormalWidget.getStaticChildren()) {
-
-						if (config.MinimapHidingTask()==DEFAULT) {
-							widget.setHidden(false);
-						}
-						else
-						{
-							widget.setHidden(true);
-						}
-
-					}
-				}
-
-
-
-				final Widget resizableNormalWidget_orbs = client.getWidget(ComponentID.RESIZABLE_VIEWPORT_BOTTOM_LINE_MINIMAP_ORB_HOLDER);
-
-				if (resizableNormalWidget_orbs != null && !resizableNormalWidget_orbs.isSelfHidden()) {
-					for (Widget widget : resizableNormalWidget_orbs.getStaticChildren()) {
-
-						if (config.MinimapHidingTask()==DEFAULT) {
-							widget.setHidden(false);
-						}
-						else
-						{
-							widget.setHidden(true);
-						}
-
-					}
-				}
-
-
-			}
+		if (config.HideMiniMapOnChat() == true) {
+			this.updateMinimapWidgetVisibility(chatbuttonhidecheck == 0 ^ config.MinimapHidingTask() == DEFAULT);
 		}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -969,17 +919,10 @@ public class collapsiblemodernchatplugin extends Plugin
 			}
 		}
 
-		if (config.HideMiniMapOnChat()==false) {
-			final Widget resizableNormalWidget = client.getWidget(ComponentID.RESIZABLE_VIEWPORT_BOTTOM_LINE_MINIMAP);
-
-			if (resizableNormalWidget != null && !resizableNormalWidget.isSelfHidden()) {
-				for (Widget widget : resizableNormalWidget.getStaticChildren()) {
-
-					widget.setHidden(false);
-
-				}
-			}
+		if (config.HideMiniMapOnChat() == false) {
+			this.updateMinimapWidgetVisibility(false);
 		}
+
 		if (config.HideMiniMapX()==true) {
 			// MINIMAP X
 			final Widget MinimapX = client.getWidget(10747938);
